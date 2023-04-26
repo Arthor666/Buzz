@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="menu">
+    <button (click)="getUsers()" class="buzz-button menu-button">Consultar Usuario</button>
+    <button (click)="option=2" class="buzz-button menu-button">Crear Usuario</button>    
+  </div>
+  <div class="content">
+    <div *ngIf="option==1">
+      <div class="buscar-content">
+        <input class="input-busqueda" (change)="deleteFilter()" type="text" [(ngModel)]="nameOrEmail" placeholder="Buscar por nombre o correo"  />
+        <button class="buscar-button" (click)="getUserByNameOrEmail()">Buscar</button>
+      </div>      
+      <table>
+        <tr class="encabezado">
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Delete</th>
+        </tr>
+        <tr *ngFor="let usuario of usuarioList">
+          <td>{{usuario.id}}</td>
+          <td>{{usuario.name}}</td>
+          <td>{{usuario.email}}</td>
+          <td ><button class="eliminar-button" (click)="deleteUser(usuario)">Eliminar</button></td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="option==2">
+      <div class="form-container">
+        <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+          <input formControlName="name" id="name" class="input-registro" type="text" placeholder="Nombre" />          
+          <input formControlName="email" class="input-registro" type="text" placeholder="Correo" />
+          <button [disabled]="!userForm.valid" id="email" class="guardar-button" type="submit" >Guardar</button>
+        </form>        
+      </div>
+    </div>        
+  </div>
+</div>

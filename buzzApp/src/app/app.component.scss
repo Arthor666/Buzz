@@ -1,0 +1,26 @@
+.buzz-nav{
+    color: white;
+    background-color: black;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    margin-left: 3vw;
+    border: solid 1px white;
+    border-radius: 5px
+}
+
+.contacto {
+  color: #fff;
+  text-decoration: none;
+  font-family: Gotham Rounded;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  margin-right: 3vw;
+  font-weight: bold;
+}
